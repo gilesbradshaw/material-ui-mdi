@@ -4,16 +4,16 @@
   "description": "Community Material Design Icons as Material-UI SvgIcon components",
   "main": "",
   "scripts": {
-    "clone-material-ui": "git clone git@github.com:callemall/material-ui.git && cd material-ui/icon-builder && npm install",
+    "clone-material-ui": "git clone https://github.com/callemall/material-ui.git && cd material-ui/packages/icon-builder && npm install",
     "get-mdi-svgs": "mkdir -p svg && node get-mdi-svgs.js",
-    "make-jsx": "node material-ui/icon-builder/build.js --output-dir jsx --svg-dir svg --mui-require absolute",
-    "make-js": "material-ui/icon-builder/node_modules/.bin/babel --stage 1 ./jsx --out-dir ./icons",
+    "make-jsx": "node material-ui/packages/icon-builder/build.js --output-dir jsx --svg-dir svg --mui-require absolute",
+    "make-js": "material-ui\\packages\\icon-builder\\node_modules\\.bin\\babel  --plugins transform-react-jsx --presets es2015 ./jsx --out-dir ./icons",
     "build": "npm run clone-material-ui && npm run get-mdi-svgs && npm run make-jsx && npm run make-js",
     "clean-all": "rm -rf material-ui jsx svg"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/conundrumer/material-ui-mdi.git"
+    "url": "git+https://github.com/gilesbradshaw/material-ui-mdi"
   },
   "keywords": [
     "react",
@@ -28,15 +28,17 @@
   ],
   "author": "David Lu",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/conundrumer/material-ui-mdi/issues"
-  },
-  "homepage": "https://github.com/conundrumer/material-ui-mdi#readme",
+  
+  "homepage": "https://github.com/gilesbradshaw/material-ui-mdi#readme",
   "peerDependencies": {
     "material-ui": "*",
     "react": "*"
   },
   "dependencies": {
     "react-addons-pure-render-mixin": "*"
+  },
+  "devDependencies": {
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "babel-preset-es2015": "^6.9.0"
   }
 }
